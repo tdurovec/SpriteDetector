@@ -21,6 +21,13 @@ somewhere in the jpg image we can find a pixel with the color (255, 254, 255) th
 ## Run
 Easy instalation with docker.
 
-'''
-docker build --tag sprite .
-'''
+###### Build image
+```
+docker build --tag sprite_detection .
+```
+
+###### Run container
+```
+docker run -d -p 5000:5000 sprite_detection
+```
+###### ENJOY
