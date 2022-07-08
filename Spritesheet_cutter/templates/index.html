@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Sprite Slicer</title>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="{{ url_for('static', filename='js/fabric.min.js') }}"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+        
+        <div class="row">
+        <header class="col-12">
+            <div class="control-bar">
+                <label for='image-input' class='btn btn-secondary mt-1 mb-1'>Browse</label>
+                <input name='image' id="image-input" type='file' style="display: none;" accept=".jpg, .jpeg, .png">
+            </div>
+            
+            <div class="mb-2">
+                <button class='btn btn-danger' id='clear-btn'>Clear</button>        
+
+                <button class='btn btn-primary' id='detection-btn'> 
+                    <span class="spinner-border spinner-border-sm hidden" role="status" aria-hidden="true" id="spinner"></span>
+                    Detect
+                </button>
+
+                <button class='btn btn-success' id='save-btn'>Save</button>
+            </div>
+        </header>
+        </div>
+        
+        <div class="col-12">
+            <div class="row">
+            <nav class="col-2">
+                <div class="input-group">            
+                    <label class=" input-group-text" for="distance">Distance</label>
+                    <input class=" form-control" type="number" min="0" value="3" id="distance" />
+                </div>
+
+                <div class="toleranci-wrapper mt-3 mb-2">
+                    <div class="checkbox-wrapper">
+                        <div class="form-check">
+                            <label  class="form-check-label" for="check-plus">
+                            +
+                            </label>
+                            <input class="form-check-input" type="checkbox" value="" id="check-plus">
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check-minus">
+                            <label class="form-check-label" for="check-minus">
+                                -
+                            </label>
+                        </div>            
+                    </div>
+                    
+
+                    <div class="input-group" style="padding-left: 10px;">            
+                        <label class=" input-group-text" for="toleranci">Toleranci</label>
+                        <input class=" form-control" type="number" min="0" value="0" id="toleranci" />
+                    </div>
+                </div>
+
+                <div class="form-check mb-1">
+                    <input class="form-check-input" type="checkbox" id="set-transparent-bg">
+                    <label class="form-check-label" for="set-transparent-bg">
+                        Set transparent background	
+                    </label>
+                </div>
+
+                <div class="input-group">            
+                    <label class="input-group-text" for="scale">Scale %</label>
+                    <input class="form-control" type="number" min="10" max='200' step='5' value="100" id="scale-percent" />
+                </div>
+            </nav>
+
+            <article class="col-8">
+                <div class="canvas-wrapper" >
+                    <canvas id="canvas" style="	border: 2px solid black;" width="1250" height="800"></canvas>
+                </div>
+            </article>
+            </div>
+        </div>
+
+        <form id='download' action='/download' method='post'>
+            <input type='hidden'>
+        </form>	
+
+    </div> 
+
+
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

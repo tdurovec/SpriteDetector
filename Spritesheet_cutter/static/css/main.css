@@ -1,0 +1,9 @@
+.app{
+    margin: 15px 15px 15px 15px;
+}
+.toleranci-wrapper{
+    display: inline-flex;
+}
+.spinner-loading-wrapper{
+    display: flex;
+}
