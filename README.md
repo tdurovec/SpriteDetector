@@ -18,3 +18,9 @@ somewhere in the jpg image we can find a pixel with the color (255, 254, 255) th
 
 <img width="569" alt="Screenshot 2022-07-08 at 20 28 19" src="https://user-images.githubusercontent.com/37587096/178049975-4977c5a8-bb70-4462-9104-ea3a3cbeade9.png">
 
+## Run
+Easy instalation with docker.
+
+'''
+docker build --tag sprite .
+'''
