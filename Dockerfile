@@ -1,10 +1,11 @@
 FROM python:3.8.5
 
-WORKDIR /sprite_detection
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+COPY requirements.txt /sprite_detection/requirements.txt
+RUN pip3 install -r /sprite_detection/requirements.txt
 
-COPY . .
+COPY ./sprite_detection /sprite_detection
 
-CMD [ "python", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD [ "python", "sprite_detection/run.py"]
