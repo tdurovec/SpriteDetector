@@ -65,14 +65,14 @@ def detection():
 
 @app.route("/cut-image", methods=["POST"])
 def image_cut():
-    '''
+    """
     take the image and coordinates from 
     the frontend and then cut the image
     according to the coordinates and put
     it in a zip folder
     :exception POST
     :return: None
-    '''
+    """
     global image_folder
 
     if request.method == "POST":
@@ -131,4 +131,9 @@ def download():
             image_folder, as_attachment=True, attachment_filename="Sprites.zip"
         )
 
+    return redirect(url_for("home"))
+
+
+@app.errorhandler(404)
+def not_found(error):
     return redirect(url_for("home"))
