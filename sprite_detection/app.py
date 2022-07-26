@@ -124,7 +124,6 @@ def download():
     :exception POST
     :return: BytesIO object
     '''
-    global image_folder
 
     if image_folder is not None:
         return send_file(
