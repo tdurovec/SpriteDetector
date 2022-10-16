@@ -73,7 +73,6 @@ def image_cut():
     :exception POST
     :return: None
     """
-    global image_folder
 
     if request.method == "POST":
         data = request.get_json()
