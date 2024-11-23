@@ -30,4 +30,3 @@ docker build --tag sprite_detection .
 ```
 docker run -p 5000:5000 sprite_detection
 ```
-###### ENJOY
